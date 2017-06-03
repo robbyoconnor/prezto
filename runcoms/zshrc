@@ -22,7 +22,12 @@ export alias gco="git checkout"
 alias LS="LS -alFe"
 alias sl="sl -alFe"
 export GOPATH=$HOME/gocode
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+alias stripwhitespace="find . -name $1 -type f -exec sed -i -e's/[[:space:]]*$//' $2 {} \;"
+ppid() { ps -p ${1:-$$} -o ppid=; }
+randpw() { dd if=/dev/urandom bs=1 count=$1 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev }
+gpr() { git fetch $1 pull/$2/head:$3 }
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

@@ -9,3 +9,94 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+source ~/.zshrc
+export EDITOR=vim
+export TERM=xterm-256color
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias gco="git checkout"
+alias gpo="git push origin"
+alias gfpo"git push origin $1 -f"
+unset NODE_PATH
+export alias gco="git checkout"
+alias LS="LS -alFe"
+alias sl="sl -alFe"
+alias tma='tmux attach -d -t'
+alias tmn='tmux new -s $(basename $(pwd))'
+alias tml='tmux list-sessions'
+alias apb='ansible-playbook'
+alias dco='docker-compose'
+alias dcb='docker-compose build'
+alias dce='docker-compose exec'
+alias dcps='docker-compose ps'
+alias dcrestart='docker-compose restart'
+alias dcrm='docker-compose rm'
+alias dcr='docker-compose run'
+alias dcstop='docker-compose stop'
+alias dcup='docker-compose up'
+alias dcdn='docker-compose down'
+alias dcl='docker-compose logs'
+alias dclf='docker-compose logs -f'
+unset gb
+# bower
+alias bower='noglob bower'
+export GOPATH=$HOME/gocode
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+
+export NVM_DIR="/home/rob/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by travis gem
+[ -f /home/rob/.travis/travis.sh ] && source /home/rob/.travis/travis.sh
+
+export PATH=$PATH:$HOME/bin/:$HOME/.cljr/bin/
+export PATH=$PATH:$GOPATH/bin/
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/.evm/bin"
+export PATH="$PATH:/usr/bin"
+export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$HOME:/opt/chefdk/bin:$PATH
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/gems/ruby-2.2.4/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="/home/rob/.cask/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$PATH:$HOME/Android/Sdk/build-tools/25.0.0"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/apache-maven-3.3.9/bin"
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    eval "$(pyenv init -)"
+fi
+CURRENT_NODE=`nvm current`
+export PATH="/home/rob/.nvm/versions/node/$CURRENT_NODE/bin/:$PATH"
+export IDEA_HOME=/home/rob/idea-IU-144.4199.23/
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/scala-2.11.8/bin/:/opt/vuze
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+# [[ -s "/home/rob/.sdkman/bin/sdkman-init.sh" ]] && source "/home/rob/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/home/rob/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+#source '/home/rob/google-cloud-sdk/completion.zsh.inc'
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+#eval "$(stack --bash-completion-script stack)"
